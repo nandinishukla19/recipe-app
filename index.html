@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Recipe Finder App
+    </title>
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= PROGRESS BAR ================= -->
+
+    <div id="progressBar"></div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <h1>
+                🍲 Recipe Finder
+            </h1>
+
+        </div>
+
+        <!-- ================= NAVBAR ================= -->
+
+        <nav class="navbar">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#tech">
+                Tech Stack
+            </a>
+
+            <a href="#chef">
+                Chef Picks
+            </a>
+
+        </nav>
+
+        <!-- ================= BUTTONS ================= -->
+
+        <div class="header-buttons">
+
+            <button
+                id="loginBtn"
+                class="login-btn">
+
+                <i class="fa-brands fa-google"></i>
+
+                Login
+
+            </button>
+
+            <button
+                id="logoutBtn"
+                class="gradient-btn">
+
+                Logout
+
+            </button>
+
+            <button
+                class="theme-btn"
+                onclick="toggleDarkMode()">
+
+                🌙
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero"
+        id="home">
+
+        <div class="hero-content">
+
+            <h2>
+                Discover Delicious Recipes Instantly
+            </h2>
+
+            <p>
+
+                Search recipes by ingredients,
+                cuisine, category and save
+                your favorite meals with
+                beautiful modern UI.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-section">
+
+            <!-- SEARCH BY NAME -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search recipes like pasta, paneer, pizza...">
+
+                <button onclick="searchRecipe()">
+
+                    Search
+
+                </button>
+
+            </div>
+
+            <!-- SEARCH BY INGREDIENTS -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-bowl-food"></i>
+
+                <input
+                    type="text"
+                    id="ingredientInput"
+                    placeholder="Search by ingredients like tomato, onion...">
+
+                <button onclick="searchByIngredients()">
+
+                    Ingredients
+
+                </button>
+
+            </div>
+
+            <!-- ================= FILTERS ================= -->
+
+            <div class="filters">
+
+                <select id="category">
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                    <option value="dessert">
+                        Desserts
+                    </option>
+
+                    <option value="main course">
+                        Lunch
+                    </option>
+
+                    <option value="breakfast">
+                        Breakfast
+                    </option>
+
+                    <option value="salad">
+                        Salad
+                    </option>
+
+                    <option value="snack">
+                        Snacks
+                    </option>
+
+                </select>
+
+                <select id="diet">
+
+                    <option value="">
+                        Veg & Non-Veg
+                    </option>
+
+                    <option value="vegetarian">
+                        Pure Veg
+                    </option>
+
+                    <option value="ketogenic">
+                        Non Veg
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- ================= ACTION BUTTONS ================= -->
+
+            <div class="action-buttons">
+
+                <button
+                    class="gradient-btn"
+                    onclick="suggestRecipes()">
+
+                    ✨ Suggest Recipes
+
+                </button>
+
+                <a href="favorites.html"
+                    class="gradient-btn">
+
+                    ❤️ Favorites
+
+                </a>
+
+                <a href="https://github.com/nandinishukla19/recipe-app"
+                    target="_blank"
+                    class="gradient-btn">
+
+                    <i class="fa-brands fa-github"></i>
+
+                    Github
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ================= LOADER ================= -->
+
+        <div id="loader"
+            class="loader">
+
+        </div>
+
+        <!-- ================= RESULT ================= -->
+
+        <section id="result"
+            class="grid">
+
+        </section>
+
+    </main>
+
+    <!-- ================= ABOUT SECTION ================= -->
+
+    <section class="about-section"
+        id="about">
+
+        <div class="section-title">
+
+            <h2>
+                About Project
+            </h2>
+
+        </div>
+
+        <div class="about-card">
+
+            <p>
+
+                Recipe Finder App is a modern
+                web application built using
+                HTML, CSS, JavaScript,
+                Firebase Authentication,
+                and Spoonacular API.
+
+                Users can search recipes,
+                filter meals, save favorites,
+                and explore cooking ideas
+                with a beautiful responsive UI.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TECH STACK ================= -->
+
+    <section class="tech-section"
+        id="tech">
+
+        <div class="section-title">
+
+            <h2>
+                Tech Stack
+            </h2>
+
+        </div>
+
+        <div class="tech-grid">
+
+            <div class="tech-card">
+
+                <h3>
+                    HTML5
+                </h3>
+
+            </div>
+
+            <div class="tech-card">
+
+                <h3>
+                    CSS3
+                </h3>
+
+            </div>
+
+            <div class="tech-card">
+
+                <h3>
+                    JavaScript
+                </h3>
+
+            </div>
+
+            <div class="tech-card">
+
+                <h3>
+                    Firebase
+                </h3>
+
+            </div>
+
+            <div class="tech-card">
+
+                <h3>
+                    Spoonacular API
+                </h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CHEF PICKS ================= -->
+
+    <section class="chef-section"
+        id="chef">
+
+        <div class="section-title">
+
+            <h2>
+                Chef Picks
+            </h2>
+
+        </div>
+
+        <div class="chef-grid">
+
+            <div class="chef-card">
+
+                <h3>
+                    Italian Pasta
+                </h3>
+
+                <p>
+                    Creamy cheesy pasta recipe.
+                </p>
+
+            </div>
+
+            <div class="chef-card">
+
+                <h3>
+                    Paneer Curry
+                </h3>
+
+                <p>
+                    Rich Indian curry recipe.
+                </p>
+
+            </div>
+
+            <div class="chef-card">
+
+                <h3>
+                    Chocolate Cake
+                </h3>
+
+                <p>
+                    Soft delicious dessert recipe.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p id="footerYear"></p>
+
+    </footer>
+
+    <!-- ================= JS ================= -->
+
+    <script type="module"
+        src="script.js">
+
+    </script>
+
+    <!-- ================= FOOTER YEAR ================= -->
+
+    <script>
+
+        document.getElementById(
+            "footerYear"
+        ).innerHTML =
+
+        `© ${new Date().getFullYear()} Recipe Finder App | Built by Nandini Shukla`;
+
+    </script>
+
+</body>
+
+</html>

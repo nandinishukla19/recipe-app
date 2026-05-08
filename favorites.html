@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Favorite Recipes
+    </title>
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= PROGRESS BAR ================= -->
+
+    <div id="progressBar"></div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <h1>
+                ❤️ Favorite Recipes
+            </h1>
+
+        </div>
+
+        <!-- ================= NAVBAR ================= -->
+
+        <nav class="navbar">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#tech">
+                Tech Stack
+            </a>
+
+            <a href="index.html#chef">
+                Chef Picks
+            </a>
+
+        </nav>
+
+        <!-- ================= BUTTONS ================= -->
+
+        <div class="header-buttons">
+
+            <button
+                class="theme-btn"
+                onclick="toggleDarkMode()">
+
+                🌙
+
+            </button>
+
+            <a href="index.html"
+                class="gradient-btn">
+
+                ⬅ Back
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h2>
+                Your Favorite Recipes
+            </h2>
+
+            <p>
+
+                View all saved recipes,
+                cooking inspirations,
+                and delicious dishes
+                in one beautiful place.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- ================= FAVORITES LIST ================= -->
+
+        <section id="favoritesList"
+            class="grid">
+
+        </section>
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <div id="emptyState"
+            class="empty-state"
+            style="display:none;">
+
+            <i class="fa-regular fa-heart"
+                style="font-size:70px;margin-bottom:20px;"></i>
+
+            <h2>
+                No Favorite Recipes Yet
+            </h2>
+
+            <p>
+
+                Save recipes from the
+                homepage to see them here.
+
+            </p>
+
+            <a href="index.html"
+                class="gradient-btn">
+
+                Browse Recipes
+
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- ================= ABOUT FAVORITES ================= -->
+
+    <section class="about-section">
+
+        <div class="section-title">
+
+            <h2>
+                Why Save Favorites?
+            </h2>
+
+        </div>
+
+        <div class="about-card">
+
+            <p>
+
+                Favorite recipes are stored locally
+                and linked with your account so you
+                can easily revisit dishes anytime.
+
+                This feature improves user experience
+                and creates a personalized cooking journey.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p id="footerYear"></p>
+
+    </footer>
+
+    <!-- ================= JS ================= -->
+
+    <script type="module"
+        src="script.js">
+
+    </script>
+
+    <!-- ================= FOOTER YEAR ================= -->
+
+    <script>
+
+        document.getElementById(
+            "footerYear"
+        ).innerHTML =
+
+        `© ${new Date().getFullYear()} Recipe Finder App | Built by Nandini Shukla`;
+
+    </script>
+
+</body>
+
+</html>
