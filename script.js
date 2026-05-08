@@ -253,7 +253,7 @@ async function searchRecipe(){
 
         const url =
 
-`https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&type=${encodeURIComponent(category)}&diet=${encodeURIComponent(diet)}&number=12&addRecipeInformation=true&apiKey=${API_KEY}`;
+`https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&type=${encodeURIComponent(category)}&diet=${encodeURIComponent(diet)}&number=12&addRecipeInformation=true&addRecipeNutrition=true&apiKey=${API_KEY}`;
 
         const res =
         await fetch(url);
@@ -406,7 +406,7 @@ async function suggestRecipes(){
 
         const url =
 
-`https://api.spoonacular.com/recipes/complexSearch?query=${random}&number=12&addRecipeInformation=true&apiKey=${API_KEY}`;
+`https://api.spoonacular.com/recipes/complexSearch?query=${random}&number=12&addRecipeInformation=true&addRecipeNutrition=true&apiKey=${API_KEY}`;
 
         const res =
         await fetch(url);
@@ -532,7 +532,7 @@ async function viewRecipe(id){
         const res =
         await fetch(
 
-`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
+`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${API_KEY}`
 
         );
 
@@ -560,6 +560,15 @@ async function viewRecipe(id){
         )
         .join("");
 
+        const calories =
+
+        recipe.nutrition
+        ?.nutrients
+        ?.find(
+            nutrient =>
+            nutrient.name === "Calories"
+        )?.amount || "N/A";
+
         document.getElementById(
             "result"
         ).innerHTML = `
@@ -584,7 +593,7 @@ async function viewRecipe(id){
                     </p>
 
                     <p>
-                        🔥 ${recipe.healthScore} Score
+                        🔥 ${calories} Calories
                     </p>
 
                     <p>
